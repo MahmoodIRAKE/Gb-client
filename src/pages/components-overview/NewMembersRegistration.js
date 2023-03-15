@@ -32,9 +32,9 @@ const NewMembersRegistration = () => (
         </div>
         <MainCard title="Sample Card">
             <Typography variant="body2">
-                {/* <StudentRegistration /> */}
+                <StudentRegistration />
                 {/* <TeacherRegistration /> */}
-                <ClassRegistration />
+                {/* <ClassRegistration /> */}
             </Typography>
         </MainCard>
         <Box m={10} display="flex" justifyContent="center" alignItems="center">
