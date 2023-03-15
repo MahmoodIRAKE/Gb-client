@@ -15,6 +15,8 @@ const Typography = Loadable(lazy(() => import('pages/components-overview/Typogra
 const Color = Loadable(lazy(() => import('pages/components-overview/Color')));
 const Shadow = Loadable(lazy(() => import('pages/components-overview/Shadow')));
 const AntIcons = Loadable(lazy(() => import('pages/components-overview/AntIcons')));
+const NewMembersRegistration = Loadable(lazy(() => import('pages/components-overview/NewMembersRegistration')));
+import StudentProfile from './../pages/profiles/StudentProfile';
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -29,6 +31,14 @@ const MainRoutes = {
         {
             path: 'color',
             element: <Color />
+        },
+        {
+            path: 'NewMembersRegistration',
+            element: <NewMembersRegistration />
+        },
+        {
+            path: 'StudentProfile',
+            element: <StudentProfile />
         },
         {
             path: 'dashboard',
