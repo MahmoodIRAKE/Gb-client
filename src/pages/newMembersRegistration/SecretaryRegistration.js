@@ -17,11 +17,22 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
-const TeacherRegistration = ({ handleTeacher, teacher }) => {
+const SecretaryRegistration = ({ handleSecretary, secretary }) => {
     return (
         <React.Fragment>
             <CssBaseline />
             <Grid container direction="row" justifyContent="center" alignItems="center" spacing={5}>
+                <Grid item xs={12} sm={4}>
+                    <TextField
+                        required
+                        id="ID"
+                        name="secretaryId"
+                        label="ID"
+                        fullWidth
+                        variant="standard"
+                        onChange={(e) => handleSecretary(e.target.name, e.target.value)}
+                    />
+                </Grid>
                 <Grid item xs={12} sm={4}>
                     <TextField
                         required
@@ -30,7 +41,7 @@ const TeacherRegistration = ({ handleTeacher, teacher }) => {
                         label="First name"
                         fullWidth
                         variant="standard"
-                        onChange={(e) => handleTeacher(e.target.name, e.target.value)}
+                        onChange={(e) => handleSecretary(e.target.name, e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} sm={4}>
@@ -42,10 +53,10 @@ const TeacherRegistration = ({ handleTeacher, teacher }) => {
                         fullWidth
                         autoComplete="family-name"
                         variant="standard"
-                        onChange={(e) => handleTeacher(e.target.name, e.target.value)}
+                        onChange={(e) => handleSecretary(e.target.name, e.target.value)}
                     />
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                {/* <Grid item xs={12} sm={4}>
                     <TextField
                         required
                         id="PhoneNumber"
@@ -56,10 +67,10 @@ const TeacherRegistration = ({ handleTeacher, teacher }) => {
                         variant="standard"
                         onChange={(e) => handleTeacher(e.target.name, e.target.value)}
                     />
-                </Grid>
+                </Grid> */}
             </Grid>
         </React.Fragment>
     );
 };
 
-export default TeacherRegistration;
+export default SecretaryRegistration;

@@ -8,7 +8,7 @@ import { fetchSecretaries } from './../../store/reducers/secretary';
 
 // ==============================|| STUDENT PROFILE PAGE ||============================== //
 
-const StudentProfile = () => {
+const SecretaryProfile = () => {
     const secretary = useSelector((state) => state.secretary.secretary);
 
     useEffect(() => {
@@ -22,4 +22,4 @@ const StudentProfile = () => {
     );
 };
 
-export default StudentProfile;
+export default SecretaryProfile;

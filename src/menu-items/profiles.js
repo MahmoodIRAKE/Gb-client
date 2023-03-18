@@ -28,6 +28,13 @@ const Profiles = {
             icon: icons.ProfileOutlined
         },
         {
+            id: 'secretaryProfiles',
+            title: 'Secretary Profiles',
+            type: 'item',
+            url: '/secretaryProfiles',
+            icon: icons.ProfileOutlined
+        },
+        {
             id: 'student',
             title: 'student',
             type: 'item',

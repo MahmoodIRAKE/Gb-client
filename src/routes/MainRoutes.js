@@ -18,6 +18,7 @@ const AntIcons = Loadable(lazy(() => import('pages/components-overview/AntIcons'
 const NewMembersRegistration = Loadable(lazy(() => import('pages/components-overview/NewMembersRegistration')));
 import StudentProfiles from '../pages/profiles/StudentProfiles';
 import TeacherProfiles from '../pages/profiles/TeacherProfiles';
+import SecretaryProfiles from '../pages/profiles/SecretaryProfiles';
 import Student from 'pages/personal-profile/Student';
 
 // ==============================|| MAIN ROUTING ||============================== //
@@ -45,6 +46,10 @@ const MainRoutes = {
         {
             path: 'TeacherProfiles',
             element: <TeacherProfiles />
+        },
+        {
+            path: 'SecretaryProfiles',
+            element: <SecretaryProfiles />
         },
         {
             path: 'Student',
