@@ -1,0 +1,21 @@
+#personal-info {
+    display: flex;
+    flex-direction: row;
+}
+
+#info {
+    margin: 1%;
+    margin-right: 15%
+}
+
+#sessions {
+    margin-top: 1.5%;
+    margin-left: 10%;
+}
+
+#divider {
+     margin-top: 2%;
+}
+
+#tables {
+  }

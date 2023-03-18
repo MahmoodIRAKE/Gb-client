@@ -1,0 +1,93 @@
+
+.heading {
+    color: #1890ff;
+    border-bottom: 1px solid #14877c;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+  }
+  input {
+    width: 40%;
+    min-width: 200px;
+    border-radius: 10px;
+    border: 2px solid #14877c;
+    padding: 10px;
+    font-size: 14px;
+  }
+  button {
+    height: 40px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 30px;
+    display: inline-block;
+    text-align: center;
+    user-select: none;
+    font-weight: 600;
+    border-radius: 4px;
+    color: #ffffff;
+    border: 1px solid #14877c;
+    background-color: #14877c;
+    cursor: pointer;
+    margin: 0px ;
+    min-width: 10px;
+  }
+  
+  button:hover {
+    background: #14877c;
+    color: #ffffff;
+  }
+  
+  table {
+    width: 90%;
+    padding: 1em;
+    margin: 20px 0;
+    border-collapse: collapse;
+    box-shadow: 0 1px 2px 0 #c6e8c9;
+  }
+  
+  thead {
+    background-color: #caf0ec;
+    font-size: 16px;
+  }
+  
+  th {
+    text-align: center;
+    padding: 8px;
+    background-color: 1px solid #ffffff;
+    color: #1890ff;
+  }
+  #tabletd {
+    text-align: center;
+    padding: 8px;
+  }
+  
+  #tabletr:hover {
+    background-color: #c2e4ed;
+  }
+
+  #tabletr {
+    height: 10px;
+    
+  }
+  
+  tr:nth-child(even) {
+    background-color: #e0e0e0;
+  }
+
+  #pagination {
+    align-content: center;
+    align-items: center;
+    margin-left: 40%;
+  }
+
+  #profile-Item {
+    cursor: pointer;
+  }
+
+  #search {
+    margin-left: 30%;
+    
+  }
+
+
+
+  

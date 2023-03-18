@@ -14,10 +14,24 @@ const Profiles = {
     type: 'group',
     children: [
         {
-            id: 'studentProfile',
-            title: 'Student Profile',
+            id: 'studentProfiles',
+            title: 'Students Profiles',
             type: 'item',
-            url: '/studentProfile',
+            url: '/studentProfiles',
+            icon: icons.ProfileOutlined
+        },
+        {
+            id: 'teacherProfiles',
+            title: 'Teachers Profiles',
+            type: 'item',
+            url: '/teacherProfiles',
+            icon: icons.ProfileOutlined
+        },
+        {
+            id: 'student',
+            title: 'student',
+            type: 'item',
+            url: '/student',
             icon: icons.ProfileOutlined
         }
     ]
