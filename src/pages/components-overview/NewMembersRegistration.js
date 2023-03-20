@@ -20,6 +20,13 @@ export const INSERT_TYPES = {
     CLASSES: 3
 };
 
+export const INSERT_TYPES_BY_VALUE = {
+    0: 'Student Registration',
+    1: 'Teacher Registration',
+    2: 'Secretary Registration',
+    3: 'Classes Registration'
+};
+
 const NewMembersRegistration = () => {
     const [insertType, setInsertType] = useState(INSERT_TYPES.STUDENT);
     const [student, setStudent] = useState({
@@ -81,7 +88,6 @@ const NewMembersRegistration = () => {
     };
 
     const handleSecretary = (name, value) => {
-        console.log('shit here');
         setSecretary((prevState) => ({
             ...prevState,
             [name]: value
@@ -136,7 +142,7 @@ const NewMembersRegistration = () => {
                     </Button>
                 </div>
             </div>
-            <MainCard title="Sample Card">
+            <MainCard title={INSERT_TYPES_BY_VALUE[insertType]}>
                 {insertType === INSERT_TYPES.STUDENT && <StudentRegistration handleStudent={handleStudent} student={student} />}
                 {insertType === INSERT_TYPES.TEACHER && <TeacherRegistration handleTeacher={handleTeacher} teacher={teacher} />}
                 {insertType === INSERT_TYPES.CLASSES && <ClassRegistration />}
