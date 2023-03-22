@@ -83,7 +83,7 @@ const StudentRegistration = ({ handleStudent, student }) => {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DatePicker label="BirthDay" onChange={(e) => handleStudent('birthDate', e.$d)} />
+                        <DatePicker label="BirthDay" name="birthDate" onChange={(e) => handleStudent('birthDate', e.$d)} />
                     </LocalizationProvider>
                 </Grid>
                 <Grid item xs={12} sm={4}>
@@ -113,17 +113,6 @@ const StudentRegistration = ({ handleStudent, student }) => {
                         id="favoriteMeetingTime"
                         name="favoriteMeetingTime"
                         label="favorite Meeting Time"
-                        fullWidth
-                        variant="standard"
-                        onChange={(e) => handleStudent(e.target.name, e.target.value)}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                    <TextField
-                        required
-                        id="NumberOfClasses"
-                        name="allTakenClasses"
-                        label="NumberOfClasses"
                         fullWidth
                         variant="standard"
                         onChange={(e) => handleStudent(e.target.name, e.target.value)}

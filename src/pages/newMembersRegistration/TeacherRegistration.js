@@ -57,6 +57,11 @@ const TeacherRegistration = ({ handleTeacher, teacher }) => {
                         onChange={(e) => handleTeacher(e.target.name, e.target.value)}
                     />
                 </Grid>
+                <Grid item xs={12} sm={4}>
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DatePicker label="BirthDay" name="birthDate" onChange={(e) => handleTeacher('birthDate', e.$d)} />
+                    </LocalizationProvider>
+                </Grid>
             </Grid>
         </React.Fragment>
     );

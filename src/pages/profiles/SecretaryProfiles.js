@@ -9,15 +9,17 @@ import { fetchSecretaries } from './../../store/reducers/secretary';
 // ==============================|| STUDENT PROFILE PAGE ||============================== //
 
 const SecretaryProfile = () => {
-    const secretary = useSelector((state) => state.secretary.secretary);
+    const secretaries = useSelector((state) => state.secretary.secretary);
 
     useEffect(() => {
         dispatch(fetchSecretaries());
     }, []);
-
+    if (!secretaries) {
+        return <></>; //TODO
+    }
     return (
         <div>
-            <Table />
+            <Table data={secretaries} />
         </div>
     );
 };
