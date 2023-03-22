@@ -5,28 +5,20 @@ import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
 import s from './styles.css';
 import { Box } from '@mui/material';
+import { useState } from 'react';
+import { secretaryTable } from './table-headers';
 
-import { allData } from '../util-components/constants';
-
-const tableHead = {
-    name: 'Campaign Name',
-    parentId: 'Campaign Id',
-    campaignType: 'Type',
-    status: 'Status',
-    channel: 'Channel',
-    action: 'Actions'
-};
-
-const Table = () => {
+const Table = ({ data }) => {
+    const [allData, setAllData] = useState(data);
     const countPerPage = 10;
     const [value, setValue] = React.useState('');
     const [currentPage, setCurrentPage] = React.useState(1);
-    const [collection, setCollection] = React.useState(cloneDeep(allData.slice(0, countPerPage)));
+    const [collection, setCollection] = React.useState(cloneDeep(allData?.slice(0, countPerPage)));
     const searchData = React.useRef(
         throttle((val) => {
             const query = val.toLowerCase();
             setCurrentPage(1);
-            const data = cloneDeep(allData.filter((item) => item.name.toLowerCase().indexOf(query) > -1).slice(0, countPerPage));
+            const data = cloneDeep(allData?.filter((item) => item.name.toLowerCase().indexOf(query) > -1).slice(0, countPerPage));
             setCollection(data);
         }, 400)
     );
@@ -43,7 +35,7 @@ const Table = () => {
         setCurrentPage(p);
         const to = countPerPage * p;
         const from = to - countPerPage;
-        setCollection(cloneDeep(allData.slice(from, to)));
+        setCollection(cloneDeep(allData?.slice(from, to)));
     };
 
     const handleProfile = (e, key) => {
@@ -52,15 +44,18 @@ const Table = () => {
 
     const tableRows = (rowData) => {
         const { key, index } = rowData;
-        const tableCell = Object.keys(tableHead);
+
+        const tableCell = Object.keys(allData[0]);
         const columnData = tableCell.map((keyD, i) => {
-            return (
-                <td key={i} id="tabletd">
-                    <span key={i} id="profile-Item" onClick={(e) => handleProfile(e, i)} onKeyDown={handleProfile} role="presentation">
-                        {key[keyD]}
-                    </span>
-                </td>
-            );
+            if (secretaryTable[keyD]) {
+                return (
+                    <td key={i} id="tabletd">
+                        <span key={i} id="profile-Item" onClick={(e) => handleProfile(e, i)} onKeyDown={handleProfile} role="presentation">
+                            {key[keyD]}
+                        </span>
+                    </td>
+                );
+            }
         });
 
         return (
@@ -75,12 +70,20 @@ const Table = () => {
     };
 
     const headRow = () => {
-        return Object.values(tableHead).map((title, index) => (
-            <td key={index} id="tabletd">
-                {title}
-            </td>
-        ));
+        return Object.keys(allData[0]).map((title, index) => {
+            if (secretaryTable[title]) {
+                return (
+                    <td key={index} id="tabletd">
+                        {secretaryTable[title]}
+                    </td>
+                );
+            }
+        });
     };
+
+    if (!data) {
+        return <></>;
+    }
 
     return (
         <>

@@ -2,11 +2,26 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getAllSecretaries } from 'store/secretary/secretaryService';
 import { api } from 'api/api';
+
 // thunks
 
 export const fetchSecretaries = createAsyncThunk('secretary/fetchSecretaries', async () => {
-    const response = await api.get('/secretary');
-    return response.data;
+    try {
+        const response = await api.get('/secretary');
+        console.log('@@@@', response);
+        return response.data;
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+export const SecretaryPOST = createAsyncThunk('secretary/SecretaryPOST', async (data) => {
+    try {
+        const response = await api.post('/secretary', data);
+        return response.data;
+    } catch (err) {
+        console.log(err);
+    }
 });
 
 // initial state
@@ -25,6 +40,9 @@ const secretary = createSlice({
         builder.addCase(fetchSecretaries.fulfilled, (state, action) => {
             // Add user to the state array
             state.secretary = action.payload;
+        });
+        builder.addCase(SecretaryPOST.fulfilled, (state, action) => {
+            // Add user to the state array
         });
     }
 });
