@@ -20,6 +20,7 @@ import StudentProfiles from '../pages/profiles/StudentProfiles';
 import TeacherProfiles from '../pages/profiles/TeacherProfiles';
 import SecretaryProfiles from '../pages/profiles/SecretaryProfiles';
 import Student from 'pages/personal-profile/Student';
+import CalenderEvents from 'pages/CalendarEvents/CalenderEvents';
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -34,6 +35,10 @@ const MainRoutes = {
         {
             path: 'color',
             element: <Color />
+        },
+        {
+            path: 'Events',
+            element: <CalenderEvents />
         },
         {
             path: 'NewMembersRegistration',

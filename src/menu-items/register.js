@@ -19,6 +19,13 @@ const newMembers = {
             type: 'item',
             url: '/NewMembersRegistration',
             icon: icons.ProfileOutlined
+        },
+        {
+            id: 'Events',
+            title: 'Events',
+            type: 'item',
+            url: '/Events',
+            icon: icons.ProfileOutlined
         }
     ]
 };
