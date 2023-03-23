@@ -13,9 +13,10 @@ import { useLocation } from "react-router-dom";
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
-const Student = () => {
+const Secretary = () => {
   const location = useLocation();
-  //   console.log(location.state?.id);
+  console.log("sec", location.state?.id);
+
   return (
     <>
       <MainCard title="Sample Card">
@@ -49,4 +50,4 @@ const Student = () => {
   );
 };
 
-export default Student;
+export default Secretary;

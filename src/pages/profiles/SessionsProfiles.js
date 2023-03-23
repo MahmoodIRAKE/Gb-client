@@ -1,28 +1,26 @@
 // import { useDemoData } from '@mui/x-data-grid-generator';
 import Table from "../util-components/table";
+import session from "./../../store/reducers/session";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { dispatch, store } from "store/index";
-import teacher from "./../../store/reducers/teacher";
-import { fetchTeachers } from "./../../store/reducers/teacher";
+import { fetchSessions } from "./../../store/reducers/session";
 
 // ==============================|| STUDENT PROFILE PAGE ||============================== //
 
-const TeacherProfile = () => {
-  const teachers = useSelector((state) => state.teacher.teacher);
-  console.log(teachers);
+const SessionsProfile = () => {
+  const sessions = useSelector((state) => state.session.session);
   useEffect(() => {
-    dispatch(fetchTeachers());
+    dispatch(fetchSessions());
   }, []);
-  if (!teachers) {
+  if (!sessions) {
     return <></>; //TODO
   }
-
   return (
     <div>
-      <Table data={teachers} objName={"teaProfile"} />
+      <Table data={sessions} objName={"sessProfile"} />
     </div>
   );
 };
 
-export default TeacherProfile;
+export default SessionsProfile;

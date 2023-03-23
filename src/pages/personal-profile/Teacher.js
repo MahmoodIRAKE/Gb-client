@@ -13,7 +13,7 @@ import { useLocation } from "react-router-dom";
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
-const Student = () => {
+const Teacher = () => {
   const location = useLocation();
   //   console.log(location.state?.id);
   return (
@@ -49,4 +49,4 @@ const Student = () => {
   );
 };
 
-export default Student;
+export default Teacher;
