@@ -25,12 +25,13 @@ const NewMembersRegistration = Loadable(
 import StudentProfiles from "../pages/profiles/StudentProfiles";
 import TeacherProfiles from "../pages/profiles/TeacherProfiles";
 import SecretaryProfiles from "../pages/profiles/SecretaryProfiles";
+import SessionsProfile from "pages/profiles/SessionsProfiles";
 import Student from "pages/personal-profile/Student";
+import Teacher from "pages/personal-profile/Teacher";
+import Session from "pages/personal-profile/Session";
+import Secretary from "./../pages/personal-profile/Secretary";
 
 import CalenderEvents from "pages/CalendarEvents/CalenderEvents";
-import Secretary from "./../pages/personal-profile/Secretary";
-import Teacher from "pages/personal-profile/Teacher";
-import SessionsProfile from "pages/profiles/SessionsProfiles";
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -61,6 +62,10 @@ const MainRoutes = {
     {
       path: "/teaProfile",
       element: <Teacher />,
+    },
+    {
+      path: "/teaProfile",
+      element: <Session />,
     },
     {
       path: "NewMembersRegistration",
