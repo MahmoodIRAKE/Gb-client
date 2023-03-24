@@ -10,19 +10,16 @@ import { Divider, Chip } from "@mui/material";
 import "./style.css";
 import Table from "../util-components/table";
 import { useLocation } from "react-router-dom";
-import Button from "./../../themes/overrides/Button";
-import { useNavigate } from "react-router-dom";
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
-const Student = () => {
+const Session = () => {
   const location = useLocation();
-  const history = useNavigate();
-  //   console.log(location.state?.id);
+  console.log("sec", location.state?.id);
+
   return (
     <>
       <MainCard title="Sample Card">
-        <Button onClick={() => history(-1)} />
         <div id="personal-info">
           <Avatar
             alt="profile user"
@@ -53,4 +50,4 @@ const Student = () => {
   );
 };
 
-export default Student;
+export default Session;
