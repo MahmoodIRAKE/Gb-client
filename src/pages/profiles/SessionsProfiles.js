@@ -11,7 +11,7 @@ import { fetchSessions } from "./../../store/reducers/session";
 const SessionsProfile = () => {
   const sessions = useSelector((state) => state.session.session);
   useEffect(() => {
-    dispatch(fetchSessions());
+    // dispatch(fetchSessions());
   }, []);
   if (!sessions) {
     return <></>; //TODO

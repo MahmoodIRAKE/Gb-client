@@ -45,6 +45,7 @@ const secretary = createSlice({
     builder.addCase(fetchSecretaries.fulfilled, (state, action) => {
       // Add user to the state array
       state.secretary = action.payload;
+      console.log(state);
     });
     builder.addCase(SecretaryPOST.fulfilled, (state, action) => {
       // Add user to the state array

@@ -64,7 +64,7 @@ const MainRoutes = {
       element: <Teacher />,
     },
     {
-      path: "/teaProfile",
+      path: "/sessProfile",
       element: <Session />,
     },
     {

@@ -12,7 +12,7 @@ const TeacherProfile = () => {
   const teachers = useSelector((state) => state.teacher.teacher);
   console.log(teachers);
   useEffect(() => {
-    dispatch(fetchTeachers());
+    // dispatch(fetchTeachers());
   }, []);
   if (!teachers) {
     return <></>; //TODO

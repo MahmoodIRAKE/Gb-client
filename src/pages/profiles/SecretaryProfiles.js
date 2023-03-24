@@ -10,9 +10,9 @@ import { fetchSecretaries } from "./../../store/reducers/secretary";
 
 const SecretaryProfile = () => {
   const secretaries = useSelector((state) => state.secretary.secretary);
-
+  console.log(secretaries);
   useEffect(() => {
-    dispatch(fetchSecretaries());
+    // dispatch(fetchSecretaries());
   }, []);
   if (!secretaries) {
     return <></>; //TODO

@@ -11,7 +11,7 @@ import { fetchStudents } from "./../../store/reducers/student";
 const StudentProfile = () => {
   const students = useSelector((state) => state.student.student);
   useEffect(() => {
-    dispatch(fetchStudents());
+    // dispatch(fetchStudents());
   }, []);
   if (!students) {
     return <></>; //TODO
