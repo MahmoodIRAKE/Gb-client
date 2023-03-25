@@ -96,22 +96,7 @@ const MainRoutes = {
         },
       ],
     },
-    {
-      path: "sample-page",
-      element: <SamplePage />,
-    },
-    {
-      path: "shadow",
-      element: <Shadow />,
-    },
-    {
-      path: "typography",
-      element: <Typography />,
-    },
-    {
-      path: "icons/ant",
-      element: <AntIcons />,
-    },
+
   ],
 };
 

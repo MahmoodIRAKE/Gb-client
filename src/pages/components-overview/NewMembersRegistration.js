@@ -7,10 +7,10 @@ import StudentRegistration from './../newMembersRegistration/StudentRegistration
 import TeacherRegistration from './../newMembersRegistration/TeacherRegistration';
 import SecretaryRegistration from './../newMembersRegistration/SecretaryRegistration';
 import SubjectsRegistration from 'pages/newMembersRegistration/SubjectsRegistration';
-import { Button, Box } from '@mui/material';
+import { Button, Box,Alert } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 import classes from './style.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SecretaryPOST } from '../../store/reducers/secretary';
 import { TeacherPOST } from '../../store/reducers/teacher';
 import { StudentPOST } from '../../store/reducers/student';
@@ -35,6 +35,9 @@ export const INSERT_TYPES_BY_VALUE = {
 
 const NewMembersRegistration = () => {
     const [insertType, setInsertType] = useState(INSERT_TYPES.STUDENT);
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
     const [student, setStudent] = useState({
         id: '00000000-0000-0000-0000-000000000000',
         firstName: '',
@@ -85,11 +88,11 @@ const NewMembersRegistration = () => {
 
     const [subject, setSubject] = useState({
         id: '00000000-0000-0000-0000-000000000000',
-        active: true,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        subjectname: '',
-        gradeId: ''
+        // active: true,
+        // createdAt: new Date(),
+        // updatedAt: new Date(),
+        name: '',
+        age: ''
     });
 
     const handleStudent = (name, value) => {
@@ -120,37 +123,68 @@ const NewMembersRegistration = () => {
         }));
     };
 
-    const typeClickHandler = (value) => {
+    const typeClickHandler =  (value) => {
         setInsertType(value);
     };
 
-    const handleRegistration = () => {
+    const handleRegistration =async () => {
+        setLoading(true)
         switch (insertType) {
             case 0:
-                dispatch(StudentPOST(student));
+               let x= await dispatch(StudentPOST(student));
+               if(!x?.payload){
+                setError(true)
+               }else{
+                setSuccess(true)
+               }
                 break;
 
             case 1:
-                dispatch(TeacherPOST(teacher));
+                let t=await dispatch(TeacherPOST(teacher));
+                if(!t?.payload){
+                    setError(true)
+                   }else{
+                    setSuccess(true)
+                   }
                 break;
 
             case 2:
-                dispatch(SecretaryPOST(secretary));
+                let c=await dispatch(SecretaryPOST(secretary));
+                if(!c?.payload){
+                    setError(true)
+                   }else{
+                    setSuccess(true)
+                   }
                 break;
 
             case 3:
-                dispatch(SubjectPOST(subject));
+                subject.age=subject.age.toString();
+                let a=await dispatch(SubjectPOST(subject));
+                if(!a?.payload){
+                    setError(true)
+                   }else{
+                    setSuccess(true)
+                   }
+              
                 break;
         }
+        setLoading(false)
+        
     };
-
+  
+    useEffect(()=>{if(error || success){
+        setTimeout(()=>setError(false),3000)
+        setTimeout(()=>setSuccess(false),3000)
+    }},[error,success])
     return (
         <div>
+             <div id={classes.mainConatiner}>
+       
             <div className={classes.insideContainer}>
                 <div className={classes.btnStyle}>
                     <Button
                         size="medium"
-                        variant="contained"
+                        variant={insertType === INSERT_TYPES.STUDENT? "contained":"outlined"}
                         className={classes.btnStyle}
                         onClick={() => typeClickHandler(INSERT_TYPES.STUDENT)}
                     >
@@ -160,7 +194,7 @@ const NewMembersRegistration = () => {
                 <div className={classes.btnStyle}>
                     <Button
                         size="medium"
-                        variant="contained"
+                        variant={insertType === INSERT_TYPES.TEACHER? "contained":"outlined"}
                         className={classes.btnStyle}
                         onClick={() => typeClickHandler(INSERT_TYPES.TEACHER)}
                     >
@@ -170,7 +204,7 @@ const NewMembersRegistration = () => {
                 <div className={classes.btnStyle}>
                     <Button
                         size="medium"
-                        variant="contained"
+                        variant={insertType === INSERT_TYPES.SUBJECT? "contained":"outlined"}
                         className={classes.btnStyle}
                         onClick={() => typeClickHandler(INSERT_TYPES.SUBJECT)}
                     >
@@ -180,21 +214,30 @@ const NewMembersRegistration = () => {
                 <div className={classes.btnStyle}>
                     <Button
                         size="medium"
-                        variant="contained"
+                        variant={insertType === INSERT_TYPES.SECRETARY? "contained":"outlined"}
                         className={classes.btnStyle}
                         onClick={() => typeClickHandler(INSERT_TYPES.SECRETARY)}
+                        
                     >
                         Secretary
                     </Button>
                 </div>
             </div>
-            <MainCard title={INSERT_TYPES_BY_VALUE[insertType]}>
+            
+            <MainCard id={classes.formContainer} title={INSERT_TYPES_BY_VALUE[insertType]}>
                 {insertType === INSERT_TYPES.STUDENT && <StudentRegistration handleStudent={handleStudent} student={student} />}
                 {insertType === INSERT_TYPES.TEACHER && <TeacherRegistration handleTeacher={handleTeacher} teacher={teacher} />}
                 {insertType === INSERT_TYPES.SUBJECT && <SubjectsRegistration handleSubject={handleSubject} subject={subject} />}
                 {insertType === INSERT_TYPES.SECRETARY && <SecretaryRegistration handleSecretary={handleSecretary} secretary={secretary} />}
             </MainCard>
+            </div>
+            <div id={classes.alerts}>
+            {!loading && error &&<Alert severity="error">An Error Went Down Please Check Again!</Alert>}
+            {loading &&<Alert severity="info">Info Is Being Added Please Wait ...</Alert>}
+            {!loading && success&& <Alert severity="success">{INSERT_TYPES_BY_VALUE[insertType] +" Was Done Successfully"}</Alert>}
+            </div>
             <Box m={10} display="flex" justifyContent="center" alignItems="center">
+            
                 <Button
                     key="hello"
                     alignItems="center"
@@ -203,10 +246,12 @@ const NewMembersRegistration = () => {
                     onClick={handleRegistration}
                     endIcon={<SaveIcon />}
                     sx={{ textTransform: 'capitalize' }}
+                    className={classes.btnStyleSave}
                 >
                     Save
                 </Button>
             </Box>
+            
         </div>
     );
 };

@@ -8,8 +8,8 @@ import { useEffect, useState } from 'react';
 
 const CalenderEvents = ({}) => {
    const [events,setEvents]=useState([])
-
-   const startEvents=[ {
+   const [render,setRender]=useState(false)
+   const [startEvents,setStartevents]=useState([{
     start: moment().toDate(),
     end: moment().add(1, "days").toDate(),
     title: "Some title",
@@ -17,36 +17,44 @@ const CalenderEvents = ({}) => {
     start: moment().toDate(),
     end: moment().add(1, "days").toDate(),
     title: "Sadsfas",
-  }]
+  }])
+   
 
 
    const  handleDrop=(data, event)=>{
     for(var i = 0; i < startEvents.length; i++) {
         if(startEvents[i].title == data.foo) {
             setEvents([...events,startEvents[i]])
-            console.log(data.foo); // 'bar'
+            // removing from start events 
+            startEvents.splice(i, 1)
         }
     }
-        // This method runs when the data drops
+    
+
   
     }
 
     const handleRemoveEvent=(title)=>{
-        console.log(title)
+       
         for(var i = 0; i < events.length; i++) {
-            if(events[i].title === title) {
+            if(events[i].title === title.title) {
+                setStartevents([...startEvents,events[i]])
                 if(events.length===1){
                     setEvents([]);
                 }
                 else{
-               setEvents([...events.splice(i, 1)]);
+                    
+                    events.splice(i, 1)
+              
+               setRender(!render)
                 }
                 break;
             }
         }
+        
     }
 
-
+  
     return (
         <div id="mainContainer">
             <div id="rightSided">

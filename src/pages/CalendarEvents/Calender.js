@@ -46,7 +46,7 @@ class MyCalendar extends Component {
           onEventResize={this.onEventResize}
           resizable
           style={{ height: "100vh" }}
-          onDoubleClickEvent={(event)=>{handleRemoveEvent(event.title)}}
+          onDoubleClickEvent={(event)=>{handleRemoveEvent(event)}}
         />
       </div>
     );

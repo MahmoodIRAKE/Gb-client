@@ -12,10 +12,9 @@ import { api } from 'api/api';
 
 export const SubjectPOST = createAsyncThunk('subject/SubjectPOST', async (data) => {
     try {
-        // const response = await api.post('/subject', data);
-        console.log(data);
-        // return response.data;
-        return data;
+        console.log(data)
+        const response = await api.post("/subjects", data);
+        return response.data;
     } catch (err) {
         console.log(err);
     }

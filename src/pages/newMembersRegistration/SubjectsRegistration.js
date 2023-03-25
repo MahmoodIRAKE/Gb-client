@@ -18,16 +18,17 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import { GRADES } from './grades';
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
 const SubjectsRegistration = ({ handleSubject, subject }) => {
     const [age, setAge] = React.useState('');
 
-    const GRADES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  
     const handleChange = (event) => {
         setAge(event.target.value);
-        handleSubject('gradeId', event.target.value);
+        handleSubject('age', event.target.value);
     };
 
     return (
@@ -38,7 +39,7 @@ const SubjectsRegistration = ({ handleSubject, subject }) => {
                     <TextField
                         required
                         id="SubjectName"
-                        name="subjectname"
+                        name="name"
                         label="SubjectName"
                         fullWidth
                         variant="standard"
@@ -57,7 +58,7 @@ const SubjectsRegistration = ({ handleSubject, subject }) => {
                             onChange={handleChange}
                         >
                             {GRADES.map((g) => (
-                                <MenuItem value={g}>{g}</MenuItem>
+                                <MenuItem value={g.id} key={g.id}>{g.grade}</MenuItem>
                             ))}
                         </Select>
                     </FormControl>
