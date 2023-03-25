@@ -5,8 +5,34 @@ import { Draggable, Droppable } from 'react-drag-and-drop';
 import './styles.css';
 import moment from "moment";
 import { useEffect, useState } from 'react';
+import SessionsDialog from './sessionsForm';
+import { Button } from '../../../node_modules/@mui/material/index';
+import AddIcon from '@mui/icons-material/Add';
+import PacakgeDialog from './PackageForm';
 
 const CalenderEvents = ({}) => {
+  const [open, setOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(1);
+  const [openPackage, setPacakge] = useState(false);
+
+  
+  const handleClickOpenPackage = () => {
+    setPacakge(true);
+  };
+
+  const handleClosePackage = (value) => {
+    setPacakge(false);
+    setSelectedValue(value);
+  };
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (value) => {
+    setOpen(false);
+    setSelectedValue(value);
+  };
    const [events,setEvents]=useState([])
    const [render,setRender]=useState(false)
    const [startEvents,setStartevents]=useState([{
@@ -61,7 +87,11 @@ const CalenderEvents = ({}) => {
                 <MainCard id="mainCard">
                     <div id="titleContainer">
                         <MainCard id="title">{'sessions'}</MainCard>
-                        <MainCard id="PlusBtn">{'+'}</MainCard>
+                        <MainCard id="PlusBtn" onClick={handleClickOpen}>  
+                        <Button variant="outlined" onClick={handleClickOpen} id="btnStyle">
+                              <AddIcon/>
+                       </Button>
+                       </MainCard>
                     </div>
                     <Divider/>
                     <div></div>                    
@@ -69,7 +99,11 @@ const CalenderEvents = ({}) => {
                 <MainCard id="mainCard">
                     <div id="titleContainer">
                         <MainCard id="title">{'Pacakges'}</MainCard>
-                        <MainCard id="PlusBtn">{'+'}</MainCard>
+                        <MainCard id="PlusBtn">
+                        <Button variant="outlined" onClick={handleClickOpen} id="btnStyle">
+                              <AddIcon/>
+                       </Button>
+                        </MainCard>
                     </div>
                     <Divider/>
                     <div>
@@ -98,6 +132,17 @@ const CalenderEvents = ({}) => {
               />
               </Droppable>
             </div>
+            <SessionsDialog
+            selectedValue={selectedValue}
+            open={open}
+            onClose={handleClose}
+        />
+                  <PacakgeDialog
+            selectedValue={selectedValue}
+            open={openPackage}
+            onClose={handleClosePackage}
+        />
+        
         </div>
     );
 };

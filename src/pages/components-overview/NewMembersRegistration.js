@@ -11,10 +11,10 @@ import { Button, Box,Alert } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 import classes from './style.module.css';
 import { useEffect, useState } from 'react';
-import { SecretaryPOST } from '../../store/reducers/secretary';
-import { TeacherPOST } from '../../store/reducers/teacher';
-import { StudentPOST } from '../../store/reducers/student';
-import { SubjectPOST } from '../../store/reducers/subject';
+import { SecretaryPOST ,fetchSecretaries} from '../../store/reducers/secretary';
+import { TeacherPOST ,fetchTeachers} from '../../store/reducers/teacher';
+import { StudentPOST ,fetchStudents} from '../../store/reducers/student';
+import { SubjectPOST ,fetchSubjects} from '../../store/reducers/subject';
 
 import { dispatch } from 'store/index';
 // ==============================|| SAMPLE PAGE ||============================== //
@@ -175,7 +175,14 @@ const NewMembersRegistration = () => {
     useEffect(()=>{if(error || success){
         setTimeout(()=>setError(false),3000)
         setTimeout(()=>setSuccess(false),3000)
-    }},[error,success])
+    }
+    if(success){
+        dispatch(fetchStudents());
+        dispatch(fetchSubjects());
+        dispatch(fetchTeachers());
+        dispatch(fetchSecretaries());
+    }
+},[error,success])
     return (
         <div>
              <div id={classes.mainConatiner}>

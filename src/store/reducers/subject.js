@@ -5,10 +5,10 @@ import { api } from 'api/api';
 
 // thunks
 
-// export const fetchSecretaries = createAsyncThunk('secretary/fetchSecretaries', async () => {
-//     const response = await api.get('/secretary');
-//     return response.data;
-// });
+export const fetchSubjects = createAsyncThunk('secretary/fetchSubjects', async () => {
+    const response = await api.get('/subjects');
+    return response.data;
+});
 
 export const SubjectPOST = createAsyncThunk('subject/SubjectPOST', async (data) => {
     try {
@@ -33,10 +33,10 @@ const subject = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         // Add reducers for additional action types here, and handle loading state as needed
-        // builder.addCase(fetchSecretaries.fulfilled, (state, action) => {
-        //     // Add user to the state array
-        //     state.secretary = action.payload;
-        // });
+        builder.addCase(fetchSubjects.fulfilled, (state, action) => {
+            // Add user to the state array
+            state.subject = action.payload;
+        });
         builder.addCase(SubjectPOST.fulfilled, (state, action) => {
             // Add user to the state array
         });

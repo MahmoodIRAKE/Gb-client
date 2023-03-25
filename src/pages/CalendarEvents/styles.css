@@ -13,7 +13,9 @@
     width:80vw;
     height: 100vh;
 }
-
+#btnStyle{
+    color:#fff
+}
 #mainCard{
     height: 50%;
     display: flex;
@@ -47,6 +49,18 @@
 }
 #titleText{
     font-size: 40; 
+}
+#dialogContinaer{
+    /* background-color: red; */
+    width:50vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 800px;
+}
+#formContinaer{
+    /* background-color: red; */
+    width:100%;
 }
 
  
