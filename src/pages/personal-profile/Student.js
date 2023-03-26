@@ -22,7 +22,7 @@ const Student = () => {
   return (
     <>
       <MainCard title="Sample Card">
-        <Button onClick={() => history(-1)} />
+        {/* <Button onClick={() => history(-1)} /> */}
         <div id="personal-info">
           <Avatar
             alt="profile user"

@@ -56,7 +56,7 @@ const Table = ({ data, objName }) => {
   };
 
   const handleProfile = (e, id) => {
-    history("/" + objName, { state: { id: id } });
+    history("/" + objName, { state: { id: id ,student:} });
   };
 
   const tableRows = (rowData) => {
