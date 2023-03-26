@@ -12,29 +12,27 @@ import Table from "../util-components/table";
 import { useLocation } from "react-router-dom";
 import Button from "./../../themes/overrides/Button";
 import { useNavigate } from "react-router-dom";
+import StudentMainInfo from "./components/mainInfo";
+import AnalyticEcommerce from "components/cards/statistics/AnalyticEcommerce";
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
 const Student = () => {
   const location = useLocation();
   const history = useNavigate();
-  //   console.log(location.state?.id);
+  console.log(location.state);
   return (
     <>
-      <MainCard title="Sample Card">
-        {/* <Button onClick={() => history(-1)} /> */}
-        <div id="personal-info">
-          <Avatar
-            alt="profile user"
-            src={avatar1}
-            sx={{ width: 70, height: 70 }}
-          />
-          <Typography id="info">ID</Typography>
-          <Typography id="info">FullName</Typography>
-          <Typography id="info">PhoneNumber</Typography>
-          <Typography id="info">Email</Typography>
-        </div>
-      </MainCard>
+      <div id="firstBlock">
+      <StudentMainInfo student={location.state?.student}/>
+      <div id="incomeBlock">
+      <AnalyticEcommerce title="לתשלום" count="4,42,236" />
+      <div id="income" ></div>
+      <AnalyticEcommerce title="שולם" count="4,42,236"/>
+      </div>
+      </div>
+
+
       <div id="tables">
         <Divider id="divider">
           <Chip label="Sessions" />

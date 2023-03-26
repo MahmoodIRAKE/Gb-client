@@ -19,3 +19,18 @@
 
 #tables {
   }
+#firstBlock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#incomeBlock{
+    display: flex;
+    flex-direction: column;
+    width:20vw;
+    height: 100%;
+}
+#income{
+    height: 47px;
+    width: 10%;
+}

@@ -1,0 +1,84 @@
+#container{
+    display: flex;
+    width:65%;
+    margin-right: 30px;
+    /* justify-content: space-evenly; */
+}
+#personal-info3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:20vw;
+}
+#info-block3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    
+}
+#info3{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#maincard3{
+    margin-right: 30px;
+}
+
+
+
+#personal-info {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 0.5px 0.5px 0px #d3d1d1;
+    margin-top: 20px;
+    
+}
+
+#info {
+
+    margin-right: 15%;
+    /* box-shadow: 0px 0.5px 0.5px 0px #d3d1d1; */
+    width:400px;
+
+    text-align: left;
+    font-size: 20px;
+}
+#info2{
+
+    margin-right: 15%;
+
+    width:150px;
+    text-align: right;
+    font-size: 20px;
+    margin-top: 7px;
+}
+#sessions {
+    margin-top: 1.5%;
+    margin-left: 10%;
+}
+
+#divider {
+     margin-top: 2%;
+}
+
+#tables {
+  }
+
+#info-block{
+    display: flex;
+    flex-direction: column;
+   
+}
+#mainInfoBlock{
+    display: flex;
+    width:100%;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items:s; */
+    /* margin-left: 50px; */
+    /* background-color: red; */
+}
