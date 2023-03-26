@@ -55,8 +55,8 @@ const Table = ({ data, objName }) => {
     setCollection(cloneDeep(allData?.slice(from, to)));
   };
 
-  const handleProfile = (e, id) => {
-    history("/" + objName, { state: { id: id ,student:} });
+  const handleProfile = (e, key) => {
+    history("/" + objName, { state: { id: key.id ,student:key} });
   };
 
   const tableRows = (rowData) => {
@@ -70,8 +70,8 @@ const Table = ({ data, objName }) => {
             <span
               key={i}
               id="profile-Item"
-              onClick={(e) => handleProfile(e, key["id"])}
-              onKeyDown={handleProfile}
+              onClick={(e) => handleProfile(e, key)}
+              
               role="presentation"
             >
               {key[keyD]}
