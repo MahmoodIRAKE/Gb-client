@@ -52,15 +52,15 @@
 }
 #dialogContinaer{
     /* background-color: red; */
-    width:50vw;
+    width: 20vw;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    height: 800px;
+    height: 20vw;
 }
 #formContinaer{
     /* background-color: red; */
-    width:100%;
+    
 }
 
  
